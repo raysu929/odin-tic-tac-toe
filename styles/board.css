@@ -1,0 +1,25 @@
+.board{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 450px;
+  height: 450px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+
+}
+
+button{
+  cursor: pointer;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.btn{
+  border: 4px outset rgb(64, 64, 47);
+  box-shadow:inset 8px 5px 10px black;
+  background-color: rgb(211, 140, 140);
+}
