@@ -21,8 +21,8 @@ font-size: 1.5rem;
 }
 
 .btn{
-   width: 160px;
-  height: 160px;
+   width: 150px;
+  height: 150px;
   border: 4px outset rgb(64, 64, 47);
   box-shadow:inset 8px 5px 10px black;
   background-color: rgb(211, 140, 140);
