@@ -11,7 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
 background-image: url('../pictures/background4.jpg');
 background-size: cover;
-
 }
 
 img, picture, video, canvas, svg {
@@ -37,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
 .name,
 .heading{
   color: #645a5a;
