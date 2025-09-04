@@ -41,7 +41,6 @@ h1, h2, h3, h4, h5, h6 {
 .heading{
   color: #645a5a;
 background: transparent;
-text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #7b7979;
   font-family:cursive;
   font-size: 3rem;
     text-align: center;

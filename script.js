@@ -27,8 +27,40 @@ const gameControl = [
 const container = document.querySelector(".container");
 const turn = document.querySelector(".turn");
 const board = document.querySelector(".board");
-
 board.textContent = '';
+
+
+function switchPlayers() {
+  players.currentTurn =
+    players.currentTurn === players.player1 ? players.player2 : players.player1;
+  console.log(players.currentTurn);
+}
+
+
+  function winGame() {
+    let winner = null;
+    gameControl.forEach((combo) => {
+      const [a, b, c] = combo;
+      if (
+        Gameboard.board[a] &&
+        Gameboard.board[a] === Gameboard.board[b] &&
+        Gameboard.board[a] === Gameboard.board[c]
+      ) {
+        console.log(`${Gameboard.board[a]} wins`);
+        winner = Gameboard.board[a];
+      }
+    });
+    if (winner) {
+      
+    const allButtons = document.querySelectorAll(".btn");
+    allButtons.forEach((btn) => (btn.disabled = true));
+      console.log(`${winner} wins`);
+      const score = document.querySelector(".heading");
+    score.innerText = `${winner} wins`;
+    } else if (!Gameboard.board.includes("")) {
+      console.log("Its a tie!");
+    }
+  }
 
 for (let row = 0; row < 3; row++){
   for(let col = 0; col < 3; col++){
@@ -36,17 +68,17 @@ for (let row = 0; row < 3; row++){
     button.classList.add("btn");
     button.addEventListener("click", () => {
 console.log(`button clicked at row ${row}, col ${col}`);
-
-function switchPlayers(){
-   players.currentTurn = players.currentTurn === players.player1 ? players.player2 : players.player1;
-      console.log(players.currentTurn);
-
-}
+const index = row * 3 + col;
+if(Gameboard.board[index] !== '') return;
+Gameboard.board[index] = players.currentTurn;
   button.innerText = players.currentTurn;
-  switchPlayers();
+
+    winGame();
+    switchPlayers();
 
 });
 board.appendChild(button);
 }
 }
 
+/* if players */
