@@ -23,3 +23,22 @@ button{
   box-shadow:inset 8px 5px 10px black;
   background-color: rgb(211, 140, 140);
 }
+.nameBtn,
+.roundBtn{
+  display: flex;
+  justify-content: center;
+border: 4px solid #000;
+outline: 4px solid white;
+box-shadow: 4px 4px 0 #000;
+  margin: 10px;
+  background-color: #645a5a;
+  color: white;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-left: 10px;
+font-family: "Press Start 2P", system-ui;
+width: 250px;
+}
+
