@@ -56,9 +56,11 @@ function switchPlayers() {
     allButtons.forEach((btn) => (btn.disabled = true));
       console.log(`${winner} wins`);
       const score = document.querySelector(".heading");
-    score.innerText = `${winner} wins`;
+    score.innerText = `${winner} wins!`;
     } else if (!Gameboard.board.includes("")) {
       console.log("Its a tie!");
+            const score = document.querySelector(".heading");
+          score.innerText = `Its a tie!`;
     }
   }
 
