@@ -49,7 +49,15 @@ font-family: "Press Start 2P", system-ui;
 }
 
 .name{
-  font-family: cursive;
+font-family: cursive;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.turn{
+  font-family: "Press Start 2P", system-ui;
+margin-bottom: 5px;
+font-size: 1.2rem;
+font-weight: 500;
+color: rgb(168, 116, 106);
 }

@@ -37,6 +37,9 @@ window.addEventListener("load", () => {
   music.play().catch((err) => {
     console.log("Autoplay blocked until user interacts.", err);
   });
+  
+  const turn = document.querySelector(".turn");
+  turn.innerText = `Player Turn: ${players.currentTurn}`;
 });
 document.body.addEventListener("click", () => {
   if (music.paused) {
@@ -45,18 +48,18 @@ document.body.addEventListener("click", () => {
 });
 
 const container = document.querySelector(".container");
-const turn = document.querySelector(".turn");
 const board = document.querySelector(".board");
 const nextRound = document.createElement("button");
 nextRound.innerText = "Next Round";
 nextRound.classList.add("roundBtn");
 board.textContent = '';
 
+
 const nameBtn = document.createElement("button");
 nameBtn.innerText = "Add Name";
 nameBtn.classList.add("nameBtn");
 nameBtn.addEventListener("click", () => {
-  const name = prompt("What's your name?");
+ const name = prompt("What's your name?");
   if (name){
     document.querySelector(
       ".name"
@@ -65,28 +68,39 @@ nameBtn.addEventListener("click", () => {
 })
 document.body.appendChild(nameBtn);
 
-
 function switchPlayers() {
+
   players.currentTurn =
     players.currentTurn === players.player1 ? players.player2 : players.player1;
   console.log(players.currentTurn);
+
+  const turn = document.querySelector(".turn");
+  turn.innerText = `Player Turn: ${players.currentTurn}`;
 }
 
     let round = 1;
 
 nextRound.addEventListener("click", () => {
   Gameboard.board = ["", "", "", "", "", "", "", "", ""];
+
+      players.currentTurn = "X";
+
   buttons.forEach((btn) => {
     btn.innerText = "";
     btn.disabled = false;
+    btn.classList.remove("win");
+
   });
-    players.currentTurn = "X";
+  document.querySelector(
+    ".turn"
+  ).innerText = `Player Turn: ${players.currentTurn}`;
+  
 round++;
   document.querySelector(".heading").innerText = `Play Round: ${round}`; 
   nextRound.style.display = "none";
 });
-document.body.appendChild(nextRound);
 
+document.body.appendChild(nextRound);
   function winGame() {
     let winner = null;
     gameControl.forEach((combo) => {
@@ -97,6 +111,9 @@ document.body.appendChild(nextRound);
         Gameboard.board[a] === Gameboard.board[c]
       ) {
         console.log(`${Gameboard.board[a]} wins`);
+         buttons[a].classList.add("win");
+         buttons[b].classList.add("win");
+         buttons[c].classList.add("win");
         winner = Gameboard.board[a];
       }
     });
@@ -138,6 +155,7 @@ const result = winGame();
 
 if (result === "X" || result === "O") {
   winSound.currentTime = 0;
+  music.pause();
   winSound.play();
 
 } else if (result === "tie") {
